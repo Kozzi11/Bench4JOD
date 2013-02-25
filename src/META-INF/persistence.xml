@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+  version="2.0">
+    <persistence-unit name="ojpa-mysql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://kozzi.eu:3306/eu"/>
+            <property name="javax.persistence.jdbc.user" value="kozzi"/>
+            <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="objectdb" transaction-type="RESOURCE_LOCAL">
+        <provider>com.objectdb.jpa.Provider</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>-->
+            <property name="javax.persistence.jdbc.url" value="testDB"/>
+            <property name="javax.persistence.jdbc.user" value="kozzi"/>
+            <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="elink-mysql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://kozzi.eu:3306/eu"/>
+            <property name="javax.persistence.jdbc.user" value="kozzi"/>
+            <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="batoo-mysql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.batoo.jpa.core.BatooPersistenceProvider</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="org.batoo.jpa.ddl" value="DROP" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://kozzi.eu:3306/eu"/>
+            <property name="javax.persistence.jdbc.user" value="kozzi"/>
+            <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="hb-mysql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://kozzi.eu:3306/eu"/>
+            <property name="hibernate.connection.username" value="kozzi"/>
+            <property name="hibernate.connection.password" value="sP283ZNk"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="dn-mysql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://kozzi.eu:3306/eu"/>
+            <property name="javax.persistence.jdbc.user" value="kozzi"/>
+            <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
+            <!--property name="datanucleus.autoCreateSchema" value="true"/-->
+        </properties>
+    </persistence-unit>
+</persistence>

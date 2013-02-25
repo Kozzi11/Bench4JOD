@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="mysql:mysql-connector-java:5.1.22" level="project" />
+    <orderEntry type="library" name="org.slf4j:slf4j-log4j12:1.6.6" level="project" />
+    <orderEntry type="library" name="objectdb" level="project" />
+    <orderEntry type="library" name="org.apache.openjpa:openjpa:2.2.1" level="project" />
+    <orderEntry type="library" name="org.hibernate:hibernate-entitymanager:4.1.9.Final" level="project" />
+    <orderEntry type="library" name="eclipselink" level="project" />
+    <orderEntry type="library" name="batoo-jpa-2.0.1.0-RTM" level="project" />
+    <orderEntry type="library" name="org.hibernate:hibernate-validator:4.3.1.Final" level="project" />
+    <orderEntry type="library" name="asm-4.0" level="project" />
+    <orderEntry type="library" name="datanucleus-rdbms-3.1.4" level="project" />
+    <orderEntry type="library" name="com.orientechnologies:orientdb-client:1.3.0" level="project" />
+    <orderEntry type="library" name="com.orientechnologies:orientdb-object:1.3.0" level="project" />
+    <orderEntry type="library" name="db4o-8.0.249.16098-bench" level="project" />
+    <orderEntry type="library" name="persistence-api-2.0" level="project" />
+    <orderEntry type="library" name="org.antlr:antlr-runtime:3.4" level="project" />
+  </component>
+</module>
+
