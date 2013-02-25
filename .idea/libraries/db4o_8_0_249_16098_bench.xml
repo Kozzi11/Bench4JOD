@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="db4o-8.0.249.16098-bench">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-bench.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-core-java5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-cs-java5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-cs.optional-java5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-db4ounit-java5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-tools-java5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-taj-java5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-optional-java5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-nqopt-java5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/db4o-8.0.249.16098-instrumentation-java5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bloat-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

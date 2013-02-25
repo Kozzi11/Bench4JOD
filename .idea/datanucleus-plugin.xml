@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataNucleusConfiguration">
+    <option name="enabledModules">
+      <set>
+        <option value="Bench4JOD" />
+      </set>
+    </option>
+    <option name="enhancerEnabled" value="false" />
+    <option name="metaDataExtensions">
+      <set>
+        <option value="jdo" />
+        <option value="orm" />
+        <option value="xml" />
+      </set>
+    </option>
+  </component>
+</project>
+

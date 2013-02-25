@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="com.orientechnologies:orientdb-client:1.3.0" type="repository">
+    <properties maven-id="com.orientechnologies:orientdb-client:1.3.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/orientdb-client-1.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/orientdb-enterprise-1.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/orientdb-core-1.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/orient-commons-1.3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

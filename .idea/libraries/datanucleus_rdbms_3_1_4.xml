@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="datanucleus-rdbms-3.1.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/datanucleus-rdbms-3.1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/datanucleus-spatial-3.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
