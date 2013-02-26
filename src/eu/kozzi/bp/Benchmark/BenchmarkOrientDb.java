@@ -1,5 +1,6 @@
 package eu.kozzi.bp.Benchmark;
 
+import com.orientechnologies.orient.core.config.OGlobalConfiguration;
 import com.orientechnologies.orient.core.db.object.ODatabaseObject;
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
 import com.orientechnologies.orient.core.tx.OTransaction;
@@ -110,6 +111,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             System.err.println(exception.getMessage());
             tx.rollback();
         }
+
         stopTest("Generate leafs");
     }
 
@@ -126,6 +128,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
 
     @Override
     public void makeBinaryTree() {
+        db.getLevel1Cache().invalidate();
         tx = db.getTransaction();
 
         String query = "SELECT * FROM Node ORDER BY myValue DESC";
@@ -155,16 +158,47 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
 
         try {
             tx.begin();
-            Node rootLeftChild = root.getChildren().get(0);
-            Node rootRightChild = root.getChildren().get(1);
-            List<Node> leftChildChildren = rootLeftChild.getChildren();
-            List<Node> rightChildChildren = rootRightChild.getChildren();
-            rootLeftChild.setChildren(rightChildChildren);
-            rootRightChild.setChildren(leftChildChildren);
-            db.save(rootLeftChild);
-            db.save(rootRightChild);
-            root.getChildren().set(0, rootRightChild);
-            root.getChildren().set(1, rootLeftChild);
+            List<Node> children = new ArrayList<Node>();
+
+            Node leftChild = root.getChildren().get(0);
+            Node rightChild = root.getChildren().get(1);
+
+            Node newLeftChild = new Node();
+            Node newRightChild = new Node();
+
+            db.save(newLeftChild);
+            db.save(newRightChild);
+
+            newLeftChild.setChildren(rightChild.getChildren());
+            newLeftChild.setMyValue(rightChild.getMyValue());
+            newLeftChild.setParent(rightChild.getParent());
+
+            newRightChild.setChildren(leftChild.getChildren());
+            newRightChild.setMyValue(leftChild.getMyValue());
+            newRightChild.setParent(leftChild.getParent());
+
+            children.add(newLeftChild);
+            children.add(newRightChild);
+
+            for (Node child: rightChild.getChildren()) {
+                child.setParent(newLeftChild);
+            }
+
+            for (Node child: leftChild.getChildren()) {
+                child.setParent(newRightChild);
+            }
+
+            root.setChildren(children);
+
+            rightChild.setChildren(new ArrayList<Node>());
+            rightChild.setParent(null);
+
+            leftChild.setChildren(new ArrayList<Node>());
+            leftChild.setParent(null);
+
+            db.delete(rightChild);
+            db.delete(leftChild);
+
             db.save(root);
             tx.commit();
         } catch (Exception exception) {
@@ -202,6 +236,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
     }
 
     private void generateBinaryTree(List<Node> nodes) {
+
         Queue<Node> queue = new LinkedList<Node>(nodes);
         Queue<Node> queue2 = new LinkedList<Node>();
 
@@ -217,8 +252,8 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
                 if (queue.isEmpty()) break;
                 Node node = queue.remove();
                 node.setParent(parent);
-                db.save(node);
                 children.add(node);
+                db.save(node);
                 queue2.offer(node);
             }
             parent.setChildren(children);

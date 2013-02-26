@@ -167,18 +167,51 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
         startTest();
 
         try {
-            Node rootLeftChild = root.getChildren().get(0);
-            Node rootRightChild = root.getChildren().get(1);
-            List<Node> leftChildChildren = rootLeftChild.getChildren();
-            List<Node> rightChildChildren = rootRightChild.getChildren();
-            rootLeftChild.setChildren(rightChildChildren);
-            rootRightChild.setChildren(leftChildChildren);
-            db.store(rootLeftChild);
-            db.store(rootRightChild);
-            root.getChildren().set(0, rootRightChild);
-            root.getChildren().set(1, rootLeftChild);
+
+            List<Node> children = new ArrayList<Node>();
+
+            Node leftChild = root.getChildren().get(0);
+            Node rightChild = root.getChildren().get(1);
+
+            Node newLeftChild = new Node();
+            Node newRightChild = new Node();
+
+            db.store(newLeftChild);
+            db.store(newRightChild);
+
+            newLeftChild.setChildren(rightChild.getChildren());
+            newLeftChild.setMyValue(rightChild.getMyValue());
+            newLeftChild.setParent(rightChild.getParent());
+
+            newRightChild.setChildren(leftChild.getChildren());
+            newRightChild.setMyValue(leftChild.getMyValue());
+            newRightChild.setParent(leftChild.getParent());
+
+            children.add(newLeftChild);
+            children.add(newRightChild);
+
+            for (Node child: rightChild.getChildren()) {
+                child.setParent(newLeftChild);
+            }
+
+            for (Node child: leftChild.getChildren()) {
+                child.setParent(newRightChild);
+            }
+
+            root.setChildren(children);
+
+            rightChild.setChildren(new ArrayList<Node>());
+            rightChild.setParent(null);
+
+            leftChild.setChildren(new ArrayList<Node>());
+            leftChild.setParent(null);
+
+            db.delete(rightChild);
+            db.delete(leftChild);
+
             db.store(root);
             db.commit();
+
         } catch (Exception exception) {
             exception.printStackTrace();
             db.rollback();

@@ -16,6 +16,58 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="ojpa-pgsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://kozzi.eu:5432/eu"/>
+            <property name="javax.persistence.jdbc.user" value="kozzi"/>
+            <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="ojpa-hsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/xdb"/>
+            <property name="javax.persistence.jdbc.user" value="SA"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="ojpa-hsql-f" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:hsqldb"/>
+            <property name="javax.persistence.jdbc.user" value="SA"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="ojpa-h2-f" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:testhdb"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
     <persistence-unit name="objectdb" transaction-type="RESOURCE_LOCAL">
         <provider>com.objectdb.jpa.Provider</provider>
         <class>eu.kozzi.bp.Tree.Node</class>
@@ -40,6 +92,54 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="elink-pgsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://kozzi.eu:5432/eu"/>
+            <property name="javax.persistence.jdbc.user" value="kozzi"/>
+            <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="elink-hsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/xdb"/>
+            <property name="javax.persistence.jdbc.user" value="SA"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="elink-hsql-f" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:testhdb"/>
+            <property name="javax.persistence.jdbc.user" value="SA"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="elink-h2-f" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <!--<property name="org.batoo.jpa.ddl" value="CREATE" />-->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:testhdb"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+        </properties>
+    </persistence-unit>
+
     <persistence-unit name="batoo-mysql" transaction-type="RESOURCE_LOCAL">
         <provider>org.batoo.jpa.core.BatooPersistenceProvider</provider>
         <class>eu.kozzi.bp.Tree.Node</class>
@@ -47,6 +147,18 @@
             <property name="org.batoo.jpa.ddl" value="DROP" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://kozzi.eu:3306/eu"/>
+            <property name="javax.persistence.jdbc.user" value="kozzi"/>
+            <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="batoo-pgsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.batoo.jpa.core.BatooPersistenceProvider</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="org.batoo.jpa.ddl" value="DROP" />
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://kozzi.eu:5432/eu"/>
             <property name="javax.persistence.jdbc.user" value="kozzi"/>
             <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
         </properties>
@@ -68,6 +180,86 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="hb-pgsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://kozzi.eu:5432/eu"/>
+            <property name="hibernate.connection.username" value="kozzi"/>
+            <property name="hibernate.connection.password" value="sP283ZNk"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL82Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="hb-hsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost/xdb"/>
+            <property name="hibernate.connection.username" value="SA"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="hb-hsql-f" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:hsqldb:file:testhdb"/>
+            <property name="hibernate.connection.username" value="SA"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="hb-h2" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:h2:tcp://localhost/~/test"/>
+            <property name="hibernate.connection.username" value="sa"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="hb-h2-f" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:h2:testhdb"/>
+            <property name="hibernate.connection.username" value="sa"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
     <persistence-unit name="dn-mysql" transaction-type="RESOURCE_LOCAL">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <class>eu.kozzi.bp.Tree.Node</class>
@@ -76,7 +268,31 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://kozzi.eu:3306/eu"/>
             <property name="javax.persistence.jdbc.user" value="kozzi"/>
             <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
-            <!--property name="datanucleus.autoCreateSchema" value="true"/-->
+            <property name="datanucleus.autoCreateSchema" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="dn-pgsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://kozzi.eu:5432/eu"/>
+            <property name="javax.persistence.jdbc.user" value="kozzi"/>
+            <property name="javax.persistence.jdbc.password" value="sP283ZNk"/>
+            <property name="datanucleus.autoCreateSchema" value="true" />
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="dn-hsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/xdb"/>
+            <property name="javax.persistence.jdbc.user" value="SA"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="datanucleus.autoCreateSchema" value="true" />
         </properties>
     </persistence-unit>
 </persistence>

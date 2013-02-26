@@ -54,7 +54,7 @@ public class BenchmarkObjectDb extends BenchmarkJPA {
         stopTest("Generate leafs");
     }
 
-    @Override
+    /*@Override
     public void swapRootChildren() {
         tx = entityManager.getTransaction();
         root = getRoot();
@@ -80,5 +80,5 @@ public class BenchmarkObjectDb extends BenchmarkJPA {
         }
         stopTest("Swap root children");
 
-    }
+    }  */
 }

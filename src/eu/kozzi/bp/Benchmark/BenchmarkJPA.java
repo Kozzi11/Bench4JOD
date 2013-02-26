@@ -142,23 +142,55 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
     @Override
     public void swapRootChildren() {
         tx = entityManager.getTransaction();
-        root = getRoot();
-        startTest();
+
 
         try {
             tx.begin();
-            Node rootLeftChild = root.getChildren().get(0);
-            Node rootRightChild = root.getChildren().get(1);
-            List<Node> leftChildChildren = new ArrayList<Node>(rootLeftChild.getChildren());
-            List<Node> rightChildChildren = new ArrayList<Node>(rootRightChild.getChildren());
-            rootLeftChild.setChildren(rightChildChildren);
-            rootRightChild.setChildren(leftChildChildren);
-            entityManager.persist(rootLeftChild);
-            entityManager.persist(rootRightChild);
-            root.getChildren().clear();
-            root.getChildren().add(rootRightChild);
-            root.getChildren().add(rootLeftChild);
-            entityManager.persist(root);
+            root = getRoot();
+
+            startTest();
+
+            List<Node> children = new ArrayList<Node>();
+
+            Node leftChild = root.getChildren().get(0);
+            Node rightChild = root.getChildren().get(1);
+
+            Node newLeftChild = new Node();
+            Node newRightChild = new Node();
+
+            entityManager.persist(newLeftChild);
+            entityManager.persist(newRightChild);
+
+            newLeftChild.setChildren(rightChild.getChildren());
+            newLeftChild.setMyValue(rightChild.getMyValue());
+            newLeftChild.setParent(rightChild.getParent());
+
+            newRightChild.setChildren(leftChild.getChildren());
+            newRightChild.setMyValue(leftChild.getMyValue());
+            newRightChild.setParent(leftChild.getParent());
+
+            children.add(newLeftChild);
+            children.add(newRightChild);
+
+            for (Node child: rightChild.getChildren()) {
+                child.setParent(newLeftChild);
+            }
+
+            for (Node child: leftChild.getChildren()) {
+                child.setParent(newRightChild);
+            }
+
+            root.setChildren(children);
+
+            rightChild.setChildren(new ArrayList<Node>());
+            rightChild.setParent(null);
+
+            leftChild.setChildren(new ArrayList<Node>());
+            leftChild.setParent(null);
+
+            entityManager.remove(rightChild);
+            entityManager.remove(leftChild);
+
             tx.commit();
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -169,7 +201,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
     }
 
     public void deleteTree() {
-        entityManager.clear();
+        //entityManager.clear();
         root = getRoot();
         tx = entityManager.getTransaction();
         startTest();

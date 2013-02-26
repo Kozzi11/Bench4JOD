@@ -42,9 +42,9 @@ public class BenchmarkFactory {
             this.benchmark = new BenchmarkDb4o(argsParser);
         } else if (persistenceUnitName.equals("objectdb")) {
             this.benchmark = new BenchmarkObjectDb(argsParser);
-        } else if (persistenceUnitName.equals("dn-mysql")) {
+        } else if (persistenceUnitName.contains("dn-")) {
             this.benchmark = new BenchmarkDataNucleus(argsParser);
-        } else if (persistenceUnitName.equals("batoo-mysql")) {
+        } else if (persistenceUnitName.equals("batoo-mysql") || persistenceUnitName.equals("batoo-pgsql")) {
             this.benchmark = new BenchmarkBatoo(argsParser);
         } else {
             this.benchmark = new BenchmarkJPA(argsParser);

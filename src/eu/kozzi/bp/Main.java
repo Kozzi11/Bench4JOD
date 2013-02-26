@@ -20,12 +20,12 @@ public class Main {
         try {
             ArgsParser argsParser = new ArgsParser(args);
 
-            String persistenceUnitName = argsParser.getPersistenceUnitName();
+            /*String persistenceUnitName = argsParser.getPersistenceUnitName();
             if (persistenceUnitName.contains("dn-")) {
                 ClassPathHacker.addFile("lib/asm-4.0.jar");
             } else {
                 ClassPathHacker.addFile("lib/asm-3.3.1.jar");
-            }
+            } */
 
             BenchmarkFactory benchmarkFactory = BenchmarkFactory.createInstance(argsParser);
             Benchmark benchmark = benchmarkFactory.getBenchmark();

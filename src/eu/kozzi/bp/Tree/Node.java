@@ -83,9 +83,8 @@ public class Node {
 
     private List<Node> findByValue(int value, List<Node> nodes) {
         try {
-            Iterator<Node> iterator = this.getChildren().iterator();
-            while(iterator.hasNext()) {
-                nodes = iterator.next().findByValue(value, nodes);
+            for(Node child: this.getChildren()) {
+                nodes = child.findByValue(value, nodes);
             }
             if (this.getMyValue() == value) {
                 nodes.add(this);

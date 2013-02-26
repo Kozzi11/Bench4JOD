@@ -25,10 +25,10 @@ public abstract class BenchmarkBase implements Benchmark {
         generateTree();
         findRoot();
         updateRoot();
-        //computeTreeHeight();
         findLeafs();
         addLeafs();
-        //computeTreeHeight();
+        findNodesWithValue(17);
+        findNodesWithValueDb(17);
         makeBinaryTree();
         swapRootChildren();
         computeTreeHeight();

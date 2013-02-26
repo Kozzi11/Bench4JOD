@@ -54,19 +54,26 @@ public class BenchmarkDataNucleus extends BenchmarkJPA {
     }
 
     public void makeBinaryTree() {
-        String query = "SELECT n FROM Node n ORDER BY n.myValue DESC";
-        List<Node> nodes = entityManager.createQuery(query, Node.class).getResultList();
 
         try {
             tx = entityManager.getTransaction();
             tx.begin();
+
+            root = getRoot();
+
+            String query = "SELECT n FROM Node n ORDER BY n.myValue DESC";
+            List<Node> nodes = entityManager.createQuery(query, Node.class).getResultList();
+
             startTest();
             Iterator<Node> nodeIterator = nodes.iterator();
             Queue<Node> queue2 = new LinkedList<Node>();
 
             Node firstNode = nodeIterator.next();
-            firstNode.setParent(null);
-            queue2.offer(firstNode);
+            Node newParent = new Node();
+            entityManager.persist(newParent);
+            newParent.setMyValue(firstNode.getMyValue());
+            newParent.setParent(null);
+            queue2.offer(newParent);
 
             while (queue2.isEmpty() == false) {
                 Node parent = queue2.remove();
@@ -75,13 +82,18 @@ public class BenchmarkDataNucleus extends BenchmarkJPA {
                 for (int index = 0; index < 2; ++index) {
                     if (nodeIterator.hasNext() == false) break;
                     Node node = nodeIterator.next();
-                    node.setParent(parent);
-                    children.add(node);
-                    queue2.offer(node);
+                    Node newNode = new Node();
+                    entityManager.persist(newNode);
+                    newNode.setMyValue(node.getMyValue());
+                    newNode.setParent(parent);
+                    children.add(newNode);
+                    queue2.offer(newNode);
                 }
 
                 parent.setChildren(children);
             }
+
+            entityManager.remove(root);
 
             tx.commit();
         } catch (Exception exception) {
@@ -94,11 +106,9 @@ public class BenchmarkDataNucleus extends BenchmarkJPA {
 
     @Override
     public void swapRootChildren() {
-        tx = entityManager.getTransaction();
-        root = getRoot();
+
         startTest();
         stopTest("Swap root children");
-
     }
 
     protected void generateLeafChildren(Node leaf) {
