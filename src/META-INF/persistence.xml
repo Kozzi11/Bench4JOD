@@ -164,6 +164,22 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="hb-fbsql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>eu.kozzi.bp.Tree.Node</class>
+        <properties>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.connection.driver_class" value="org.firebirdsql.jdbc.FBDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:firebirdsql:localhost:firebirdtest"/>
+            <property name="hibernate.connection.username" value="sysdba"/>
+            <property name="hibernate.connection.password" value="masterkey"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.FirebirdDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="javax.persistence.validation.mode" value="none" />
+        </properties>
+    </persistence-unit>
+
     <persistence-unit name="hb-mysql" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>eu.kozzi.bp.Tree.Node</class>
