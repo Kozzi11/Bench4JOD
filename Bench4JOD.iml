@@ -27,7 +27,6 @@
     <orderEntry type="library" name="org.hsqldb:hsqldb:2.2.9" level="project" />
     <orderEntry type="library" name="com.h2database:h2:1.3.170" level="project" />
     <orderEntry type="library" name="org.apache.derby:derby:10.9.1.0" level="project" />
-    <orderEntry type="library" name="org.firebirdsql.jdbc:jaybird-jdk17:2.2.2" level="project" />
     <orderEntry type="library" name="asm-4.0 (2)" level="project" />
   </component>
 </module>
