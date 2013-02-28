@@ -1,11 +1,9 @@
 package eu.kozzi.bp.Benchmark;
 
-import com.orientechnologies.orient.core.config.OGlobalConfiguration;
 import com.orientechnologies.orient.core.db.object.ODatabaseObject;
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
 import com.orientechnologies.orient.core.tx.OTransaction;
 import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
-import eu.kozzi.bp.ArgsParser;
 import eu.kozzi.bp.Bench4JODProperties;
 import eu.kozzi.bp.Tree.Node;
 import eu.kozzi.bp.Tree.NodeGeneratorBuilder;
@@ -64,7 +62,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             tx.rollback();
         } finally {
             stopTest("Generate tree");
-            clear();
+            finish();
         }
     }
 
@@ -89,7 +87,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             tx.rollback();
         } finally {
             stopTest("Update root");
-            clear();
+            finish();
         }
     }
 
@@ -102,7 +100,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
         System.out.print("Lefs count: ");
         System.out.println(leafs.size());
         stopTest("Find tree lefs");
-        clear();
+        finish();
     }
 
     @Override
@@ -124,7 +122,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             tx.rollback();
         } finally {
             stopTest("Generate leafs");
-            clear();
+            finish();
         }
     }
 
@@ -138,7 +136,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
         System.out.print("Find nodes db: ");
         System.out.println(nodes.size());
         stopTest("Find nodes by value in db");
-        clear();
+        finish();
     }
 
     @Override
@@ -163,7 +161,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             tx.rollback();
         } finally {
             stopTest("Generate binary tree");
-            clear();
+            finish();
         }
 
     }
@@ -225,7 +223,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             tx.rollback();
         } finally {
             stopTest("Swap root children");
-            clear();
+            finish();
         }
 
     }
@@ -244,7 +242,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             tx.rollback();
         } finally {
             stopTest("Delete tree");
-            clear();
+            finish();
         }
     }
 
@@ -254,7 +252,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
     }
 
     @Override
-    public void clear() {
+    public void finish() {
         Bench4JODProperties properties = Bench4JODProperties.getInstance();
         String cleanCache = properties.getProperty(Bench4JODProperties.Benchmark.CLEAN_CACHE, "false");
         if (Boolean.valueOf(cleanCache)) {

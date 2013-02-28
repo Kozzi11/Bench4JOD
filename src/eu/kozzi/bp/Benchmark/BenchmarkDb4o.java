@@ -5,7 +5,6 @@ import com.db4o.ObjectContainer;
 import com.db4o.config.EmbeddedConfiguration;
 
 import com.db4o.query.Predicate;
-import eu.kozzi.bp.ArgsParser;
 import eu.kozzi.bp.Bench4JODProperties;
 import eu.kozzi.bp.Tree.Node;
 import eu.kozzi.bp.Tree.NodeGeneratorBuilder;
@@ -13,7 +12,6 @@ import eu.kozzi.bp.Tree.NodeGeneratorDb4o;
 import eu.kozzi.bp.Tree.Setting.GeneratorSetting;
 
 
-import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -62,7 +60,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
             db.rollback();
         } finally {
             stopTest("Generate tree");
-            clear();
+            finish();
         }
 
     }
@@ -90,7 +88,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
             db.rollback();
         } finally {
             stopTest("Update root");
-            clear();
+            finish();
         }
     }
 
@@ -106,7 +104,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
         System.out.print("Lefs count: ");
         System.out.println(leafs.size());
         stopTest("Find tree lefs");
-        clear();
+        finish();
     }
 
     @Override
@@ -129,7 +127,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
             db.rollback();
         } finally {
             stopTest("Generate leafs");
-            clear();
+            finish();
         }
     }
 
@@ -145,7 +143,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
         System.out.print("Find nodes db: ");
         System.out.println(nodes.size());
         stopTest("Find nodes by value in db");
-        clear();
+        finish();
     }
 
     @Override
@@ -177,7 +175,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
             db.rollback();
         } finally {
             stopTest("Generate binary tree");
-            clear();
+            finish();
         }
     }
 
@@ -240,7 +238,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
             db.rollback();
         } finally {
             stopTest("Swap root children");
-            clear();
+            finish();
         }
 
     }
@@ -259,7 +257,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
             db.rollback();
         } finally {
             stopTest("Delete tree");
-            clear();
+            finish();
         }
     }
 
@@ -275,7 +273,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
     }
 
     @Override
-    public void clear() {
+    public void finish() {
         Bench4JODProperties properties = Bench4JODProperties.getInstance();
         String cleanCache = properties.getProperty(Bench4JODProperties.Benchmark.CLEAN_CACHE, "false");
         if (Boolean.valueOf(cleanCache)) {

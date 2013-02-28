@@ -2,23 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Bench4JODProperties.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Setting/GeneratorSetting.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Exception/NoArgsException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/benchmark.properties" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBatoo.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/ArgsParser.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/ArgsParser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_hibernate_hibernate_ehcache_4_1_9_Final.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/datanucleus-rdbms-3.2.0-m2.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bench4JOD.iml" afterPath="$PROJECT_DIR$/Bench4JOD.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDb4o.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDb4o.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkFactory.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkObjectDb.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkObjectDb.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkOrientDb.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkOrientDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Main.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGenerator.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Node.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Node.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/benchmark.properties" afterPath="$PROJECT_DIR$/src/META-INF/benchmark.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datanucleus.log" afterPath="$PROJECT_DIR$/datanucleus.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/log4j.properties" afterPath="$PROJECT_DIR$/src/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Bench4JOD.iws" />
@@ -26,20 +24,20 @@
     <file path="/User.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1358024349228" ignored="false" />
     <file path="/persistence.xml" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361991718248" ignored="false" />
     <file path="/Main.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362055245113" ignored="false" />
-    <file path="/fragment.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362057007483" ignored="false" />
-    <file path="/Node.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362005439144" ignored="false" />
+    <file path="/fragment.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362074636174" ignored="false" />
+    <file path="/Node.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362068312732" ignored="false" />
     <file path="/Generator.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1358332490907" ignored="false" />
     <file path="/NodeGenerator.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362054225395" ignored="false" />
-    <file path="/log4j.properties" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361994537119" ignored="false" />
+    <file path="/log4j.properties" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362067245374" ignored="false" />
     <file path="$PROJECT_DIR$/log/odb20130117.log" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1358424227467" ignored="false" />
     <file path="/NodeGeneratorBuilder.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1360056321586" ignored="false" />
     <file path="/a.dummy" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362003290039" ignored="false" />
     <file path="/ArgsParser.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362053164356" ignored="false" />
     <file path="/ArgsParserException.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1359340008733" ignored="false" />
-    <file path="/Benchmark.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362053279831" ignored="false" />
+    <file path="/Benchmark.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362065849838" ignored="false" />
     <file path="$PROJECT_DIR$/log/odb20130128.log" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1359413588894" ignored="false" />
     <file path="/BenchmarkFactory.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362054937555" ignored="false" />
-    <file path="/BenchmarkJPA.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362051935635" ignored="false" />
+    <file path="/BenchmarkJPA.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362066225573" ignored="false" />
     <file path="/BenchmarkOrientDb.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362054980250" ignored="false" />
     <file path="/NodeGeneratorJPA.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361121120959" ignored="false" />
     <file path="/NodeGeneratorOrientDb.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361121264205" ignored="false" />
@@ -49,14 +47,14 @@
     <file path="/BenchmarkObjectDb.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362051987651" ignored="false" />
     <file path="$PROJECT_DIR$/petshop/orole.och" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1360931660156" ignored="false" />
     <file path="/BenchmarkBase.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362050325224" ignored="false" />
-    <file path="/BenchmarkDataNucleus.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362052144230" ignored="false" />
+    <file path="/BenchmarkDataNucleus.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362075531245" ignored="false" />
     <file path="/BenchmarkBatoo.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361872361844" ignored="false" />
     <file path="/Dummy.txt" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362044815189" ignored="false" />
     <file path="/ClassPathHacker.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361176090325" ignored="false" />
     <file path="/batoo_jpa_2_0_1_0_RTM.xml" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361180671351" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/libraries/org_datanucleus_datanucleus_rdbms_3_2_0_m2.xml" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361979192048" ignored="false" />
     <file path="/BenchmarkProperties.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362050651759" ignored="false" />
-    <file path="/benchmark.properties" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362057036118" ignored="false" />
+    <file path="/benchmark.properties" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362069063251" ignored="false" />
     <file path="/Bench4JODProperties.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362056406690" ignored="false" />
     <file path="/NoArgsException.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362052996404" ignored="false" />
     <file path="/GeneratorSetting.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362053343987" ignored="false" />
@@ -118,64 +116,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BenchmarkBase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="21" selection-start="649" selection-end="649" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeGeneratorBase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="40" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeGeneratorBuilder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="13" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeGeneratorDb4o.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorDb4o.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeGeneratorJPA.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorJPA.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="42" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Benchmark.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="17" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="benchmark.properties" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="benchmark.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/META-INF/benchmark.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="37" selection-start="666" selection-end="666" vertical-scroll-proportion="0.40687162">
+            <state line="20" column="1" selection-start="882" selection-end="903" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BenchmarkJPA.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="146" column="77" selection-start="4685" selection-end="4685" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BenchmarkDataNucleus.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="94" column="14" selection-start="3266" selection-end="3266" vertical-scroll-proportion="0.5034843">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JPAEntityManager.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/datanucleus-api-jpa-3.2.0-m4.jar!/org/datanucleus/api/jpa/JPAEntityManager.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="156" column="0" selection-start="8170" selection-end="8170" vertical-scroll-proportion="-18.84">
               <folding />
             </state>
           </provider>
@@ -184,29 +155,9 @@
       <file leaf-file-name="persistence.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="19" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BenchmarkFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="48" selection-start="1114" selection-end="1122" vertical-scroll-proportion="0.0">
+            <state line="182" column="133" selection-start="10678" selection-end="10678" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bench4JODProperties.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Bench4JODProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="66" selection-start="2812" selection-end="2812" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1362068867464" expanded="true" signature="98:18091" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -230,22 +181,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java" />
-        <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Setting/IGeneratorSetting.java" />
-        <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Setting/GeneratorSetting.java" />
-        <option value="/usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar!/java/util/Properties.class" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGenerator.java" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkFactory.java" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDb4o.java" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkOrientDb.java" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkObjectDb.java" />
-        <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java" />
-        <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Main.java" />
         <option value="/usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar!/java/lang/Thread.class" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Bench4JODProperties.java" />
+        <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java" />
+        <option value="$PROJECT_DIR$/src/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Node.java" />
+        <option value="$PROJECT_DIR$/src/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/META-INF/benchmark.properties" />
+        <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java" />
+        <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java" />
       </list>
     </option>
   </component>
@@ -334,95 +285,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bench4JOD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bench4JOD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="bp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bench4JOD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bench4JOD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tree" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bench4JOD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bench4JOD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tree" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Setting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bench4JOD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bench4JOD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Exception" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -593,7 +456,7 @@
     </configuration>
     <configuration default="false" name="Bench4JOD" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="eu.kozzi.bp.Main" />
-      <option name="VM_PARAMETERS" value="" />
+      <option name="VM_PARAMETERS" value="-XX:-UseSplitVerifier" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -661,7 +524,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2529349" sideWeight="0.6593407" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34065935" sideWeight="0.49573106" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34065935" sideWeight="0.49573106" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -728,120 +591,116 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java">
+    <entry file="jar://$PROJECT_DIR$/lib/datanucleus-core-3.2.0-m4.jar!/org/datanucleus/asm/Opcodes.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="50" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
+        <state line="6" column="17" selection-start="166" selection-end="166" vertical-scroll-proportion="47.4">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java">
+    <entry file="jar://$PROJECT_DIR$/lib/asm-4.0.jar!/org/objectweb/asm/ByteVector.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="58" selection-start="610" selection-end="610" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#3134#3140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="845" selection-end="845" vertical-scroll-proportion="0.0">
+        <state line="6" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="-3.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar!/java/lang/Thread.class">
+    <entry file="jar://$PROJECT_DIR$/lib/asm-4.0.jar!/org/objectweb/asm/signature/SignatureReader.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="33" selection-start="5512" selection-end="5512" vertical-scroll-proportion="0.0">
+        <state line="6" column="13" selection-start="170" selection-end="170" vertical-scroll-proportion="-3.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Setting/GeneratorSetting.java">
+    <entry file="jar://$PROJECT_DIR$/lib/asm-4.0.jar!/org/objectweb/asm/signature/SignatureVisitor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
+        <state line="6" column="22" selection-start="179" selection-end="179" vertical-scroll-proportion="-3.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGenerator.java">
+    <entry file="jar://$PROJECT_DIR$/lib/asm-4.0.jar!/org/objectweb/asm/signature/SignatureWriter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0">
+        <state line="6" column="13" selection-start="170" selection-end="170" vertical-scroll-proportion="-3.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorBuilder.java">
+    <entry file="jar://$PROJECT_DIR$/lib/datanucleus-core-3.2.0-m4.jar!/org/datanucleus/asm/AnnotationWriter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorDb4o.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorJPA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="42" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="40" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0">
+        <state line="4" column="20" selection-start="139" selection-end="139" vertical-scroll-proportion="0.08196721">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="17" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
+        <state line="44" column="37" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorJPA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="16" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="21" selection-start="649" selection-end="649" vertical-scroll-proportion="0.0">
+        <state line="25" column="8" selection-start="521" selection-end="521" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="10" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="19" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="48" selection-start="1114" selection-end="1122" vertical-scroll-proportion="0.0">
+        <state line="182" column="133" selection-start="10678" selection-end="10678" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Bench4JODProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="66" selection-start="2812" selection-end="2812" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1362068867464" expanded="true" signature="98:18091" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/META-INF/benchmark.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="37" selection-start="666" selection-end="666" vertical-scroll-proportion="0.40687162">
+        <state line="20" column="1" selection-start="882" selection-end="903" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="77" selection-start="4685" selection-end="4685" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/datanucleus-api-jpa-3.2.0-m4.jar!/org/datanucleus/api/jpa/JPAEntityManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="0" selection-start="8170" selection-end="8170" vertical-scroll-proportion="-18.84">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="14" selection-start="3266" selection-end="3266" vertical-scroll-proportion="0.5034843">
           <folding />
         </state>
       </provider>
@@ -923,7 +782,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.datanucleus:datanucleus-rdbms:3.2.0-m2</last-edited>
+          <last-edited>org.hibernate:hibernate-ehcache:4.1.9.Final</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

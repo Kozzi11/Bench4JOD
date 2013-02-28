@@ -1,10 +1,8 @@
 package eu.kozzi.bp.Benchmark;
 
-import eu.kozzi.bp.ArgsParser;
 import eu.kozzi.bp.Tree.Node;
 import eu.kozzi.bp.Tree.Setting.GeneratorSetting;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,29 +21,29 @@ public class BenchmarkObjectDb extends BenchmarkJPA {
     public void findLeafs() {
         initialize();
         startTest();
-        List<Node> list1 = entityManager.createQuery(
+        List<Node> list1 = em.createQuery(
                 "SELECT DISTINCT n.parent FROM Node n", Node.class).getResultList();
-        List<Node> leafs = entityManager.createQuery(
+        List<Node> leafs = em.createQuery(
                 "SELECT n FROM Node n WHERE n NOT IN :list", Node.class)
                 .setParameter("list", list1).getResultList();
         System.out.print("Lefs count: ");
         System.out.println(leafs.size());
         stopTest("Find tree lefs");
-        clear();
+        finish();
     }
 
     @Override
     public void addLeafs() {
 
        initialize();
-        List<Node> list1 = entityManager.createQuery(
+        List<Node> list1 = em.createQuery(
                 "SELECT DISTINCT n.parent FROM Node n", Node.class).getResultList();
 
-        List<Node> leafs = entityManager.createQuery(
+        List<Node> leafs = em.createQuery(
                 "SELECT n FROM Node n WHERE n NOT IN :list", Node.class)
                 .setParameter("list", list1).getResultList();
         startTest();
-        tx = entityManager.getTransaction();
+        tx = em.getTransaction();
         try {
             tx.begin();
             for(Node leaf: leafs) {
@@ -59,7 +57,7 @@ public class BenchmarkObjectDb extends BenchmarkJPA {
             }
         } finally {
             stopTest("Generate leafs");
-            clear();
+            finish();
         }
     }
 

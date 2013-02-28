@@ -1,6 +1,5 @@
 package eu.kozzi.bp.Benchmark;
 
-import eu.kozzi.bp.ArgsParser;
 import eu.kozzi.bp.Bench4JODProperties;
 import eu.kozzi.bp.Tree.Node;
 import eu.kozzi.bp.Tree.NodeGeneratorBuilder;
@@ -24,7 +23,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
 
     protected NodeGeneratorJPA nodeGenerator;
     protected EntityManagerFactory entityManagerFactory;
-    protected EntityManager entityManager;
+    protected EntityManager em;
     protected EntityTransaction tx;
 
     BenchmarkJPA() {}
@@ -33,7 +32,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
         String persistenceUnitName = generatorSetting.getPersistenceUnitName();
 
         entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
-        entityManager = entityManagerFactory.createEntityManager();
+        em = entityManagerFactory.createEntityManager();
         NodeGeneratorBuilder nodeGeneratorBuilder = new NodeGeneratorBuilder(new NodeGeneratorJPA(), generatorSetting.getVariant());
         nodeGenerator = (NodeGeneratorJPA) nodeGeneratorBuilder.setMinChildren(generatorSetting.getMinChildren())
                 .setMaxChildren(generatorSetting.getMaxChildren())
@@ -41,19 +40,19 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
                 .setNumberOfNodes(generatorSetting.getNumberOfNodes())
                 .setHeight(generatorSetting.getHeight())
                 .createNodeGenerator();
-        nodeGenerator.setEntityManager(entityManager);
+        nodeGenerator.setEntityManager(em);
     }
 
     @Override
     public void cleanup() {
-        entityManager.close();
         entityManagerFactory.close();
     }
 
     public void generateTree() {
         initialize();
         startTest();
-        tx = entityManager.getTransaction();
+        nodeGenerator.setEntityManager(em);
+        tx = em.getTransaction();
 
         try {
             tx.begin();
@@ -66,19 +65,19 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             }
         } finally {
             stopTest("Generate tree");
-            clear();
+            finish();
         }
     }
 
     public Node getRoot() {
-        return entityManager.createQuery("SELECT n FROM Node n WHERE n.parent IS NULL", Node.class).getSingleResult();
+        return em.createQuery("SELECT n FROM Node n WHERE n.parent IS NULL", Node.class).getSingleResult();
     }
 
     public void updateRoot() {
         initialize();
         root = getRoot();
         startTest();
-        tx = entityManager.getTransaction();
+        tx = em.getTransaction();
         try {
             tx.begin();
             root.setMyValue(root.getMyValue() + 10);
@@ -89,7 +88,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             }
         } finally {
             stopTest("Update root");
-            clear();
+            finish();
         }
     }
 
@@ -98,19 +97,19 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
         startTest();
         String query = "SELECT n FROM Node n WHERE n.children IS EMPTY";
 
-        List<Node> leafs = entityManager.createQuery(query, Node.class).getResultList();
+        List<Node> leafs = em.createQuery(query, Node.class).getResultList();
         System.out.print("Lefs count: ");
         System.out.println(leafs.size());
         stopTest("Find tree lefs");
-        clear();
+        finish();
     }
 
     public void addLeafs() {
         initialize();
         String query = "SELECT n FROM Node n WHERE n.children IS EMPTY";
-        List<Node> leafs = entityManager.createQuery(query, Node.class).getResultList();
+        List<Node> leafs = em.createQuery(query, Node.class).getResultList();
         startTest();
-        tx = entityManager.getTransaction();
+        tx = em.getTransaction();
         try {
             tx.begin();
             for(Node leaf: leafs) {
@@ -124,7 +123,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             }
         } finally {
             stopTest("Generate leafs");
-            clear();
+            finish();
         }
     }
 
@@ -134,19 +133,19 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
         String query = "SELECT n FROM Node n WHERE n.myValue = :searchValue";
         startTest();
 
-        List<Node> nodes = entityManager.createQuery(query, Node.class).setParameter("searchValue", value).getResultList();
+        List<Node> nodes = em.createQuery(query, Node.class).setParameter("searchValue", value).getResultList();
         System.out.print("Find nodes db: ");
         System.out.println(nodes.size());
         stopTest("Find nodes by value in db");
-        clear();
+        finish();
     }
 
     @Override
     public void makeBinaryTree() {
         initialize();
-        tx = entityManager.getTransaction();
         String query = "SELECT n FROM Node n ORDER BY n.myValue DESC";
-        List<Node> nodes = entityManager.createQuery(query, Node.class).getResultList();
+        List<Node> nodes = em.createQuery(query, Node.class).getResultList();
+        tx = em.getTransaction();
 
         startTest();
 
@@ -161,7 +160,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             }
         } finally {
             stopTest("Generate binary tree");
-            clear();
+            finish();
         }
 
     }
@@ -169,7 +168,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
     @Override
     public void swapRootChildren() {
         initialize();
-        tx = entityManager.getTransaction();
+        tx = em.getTransaction();
 
 
         try {
@@ -186,8 +185,8 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             Node newLeftChild = new Node();
             Node newRightChild = new Node();
 
-            entityManager.persist(newLeftChild);
-            entityManager.persist(newRightChild);
+            em.persist(newLeftChild);
+            em.persist(newRightChild);
 
             newLeftChild.setChildren(rightChild.getChildren());
             newLeftChild.setMyValue(rightChild.getMyValue());
@@ -216,8 +215,8 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             leftChild.setChildren(new ArrayList<Node>());
             leftChild.setParent(null);
 
-            entityManager.remove(rightChild);
-            entityManager.remove(leftChild);
+            em.remove(rightChild);
+            em.remove(leftChild);
 
             tx.commit();
         } catch (Exception exception) {
@@ -227,7 +226,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             }
         } finally {
             stopTest("Swap root children");
-            clear();
+            finish();
         }
 
     }
@@ -235,34 +234,35 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
     public void deleteTree() {
         initialize();
         root = getRoot();
-        tx = entityManager.getTransaction();
+        tx = em.getTransaction();
         startTest();
         try {
             tx.begin();
-            entityManager.remove(root);
+            em.remove(root);
             tx.commit();
         } catch (Exception exception) {
             exception.printStackTrace();
             tx.rollback();
         } finally {
             stopTest("Delete tree");
-            clear();
+            finish();
         }
     }
 
 
     @Override
     public void initialize() {
-
-    }
-
-    @Override
-    public void clear() {
         Bench4JODProperties properties = Bench4JODProperties.getInstance();
         String cleanCache = properties.getProperty(Bench4JODProperties.Benchmark.CLEAN_CACHE, "false");
         if (Boolean.valueOf(cleanCache)) {
-            entityManager.clear();
+            entityManagerFactory.getCache().evictAll();
         }
+        em = entityManagerFactory.createEntityManager();
+    }
+
+    @Override
+    public void finish() {
+        em.close();
     }
 
     protected void generateLeafChildren(Node leaf) {
@@ -271,11 +271,11 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             Node node = new Node();
             node.setMyValue(leaf.getMyValue());
             node.setParent(leaf);
-            entityManager.persist(node);
+            em.persist(node);
             children.add(node);
         }
         leaf.setChildren(children);
-        entityManager.persist(leaf);
+        em.persist(leaf);
     }
 
     protected void generateBinaryTree(List<Node> nodes) {
@@ -294,12 +294,12 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
                 if (queue.isEmpty()) break;
                 Node node = queue.remove();
                 node.setParent(parent);
-                entityManager.persist(node);
+                em.persist(node);
                 children.add(node);
                 queue2.offer(node);
             }
             parent.setChildren(children);
-            entityManager.persist(parent);
+            em.persist(parent);
         }
     }
 }

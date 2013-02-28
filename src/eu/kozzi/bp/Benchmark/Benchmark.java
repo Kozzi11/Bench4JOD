@@ -42,7 +42,7 @@ public interface Benchmark {
 
     public void initialize();
 
-    public void clear();
+    public void finish();
 
     public void cleanup();
 

@@ -11,6 +11,7 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
+@Cacheable
 @Table(name = "NODE")
 public class Node {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

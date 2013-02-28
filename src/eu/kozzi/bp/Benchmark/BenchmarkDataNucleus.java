@@ -1,6 +1,5 @@
 package eu.kozzi.bp.Benchmark;
 
-import eu.kozzi.bp.ArgsParser;
 import eu.kozzi.bp.Tree.Node;
 import eu.kozzi.bp.Tree.NodeGeneratorBuilder;
 import eu.kozzi.bp.Tree.NodeGeneratorJPA;
@@ -25,7 +24,7 @@ public class BenchmarkDataNucleus extends BenchmarkJPA {
         enhancer.enhance();
 
         entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
-        entityManager = entityManagerFactory.createEntityManager();
+        em = entityManagerFactory.createEntityManager();
         NodeGeneratorBuilder nodeGeneratorBuilder = new NodeGeneratorBuilder(new NodeGeneratorJPA(), generatorSetting.getVariant());
         nodeGenerator = (NodeGeneratorJPA) nodeGeneratorBuilder.setMinChildren(generatorSetting.getMinChildren())
                 .setMaxChildren(generatorSetting.getMaxChildren())
@@ -33,17 +32,17 @@ public class BenchmarkDataNucleus extends BenchmarkJPA {
                 .setNumberOfNodes(generatorSetting.getNumberOfNodes())
                 .setHeight(generatorSetting.getHeight())
                 .createNodeGenerator();
-        nodeGenerator.setEntityManager(entityManager);
+        nodeGenerator.setEntityManager(em);
     }
 
     public void addLeafs() {
 
         initialize();
         String query = "SELECT n FROM Node n WHERE n.children IS EMPTY";
-        tx = entityManager.getTransaction();
+        tx = em.getTransaction();
         try {
             tx.begin();
-            List<Node> leafs = entityManager.createQuery(query, Node.class).getResultList();
+            List<Node> leafs = em.createQuery(query, Node.class).getResultList();
             startTest();
             for(Node leaf: leafs) {
                 generateLeafChildren(leaf);
@@ -56,17 +55,17 @@ public class BenchmarkDataNucleus extends BenchmarkJPA {
             }
         } finally {
             stopTest("Generate leafs");
-            clear();
+            finish();
         }
     }
 
     @Override
     public void swapRootChildren() {
         initialize();
-        tx = entityManager.getTransaction();
+        tx = em.getTransaction();
         startTest();
         stopTest("Swap root children");
-        clear();
+        finish();
 
     }
 
@@ -74,7 +73,7 @@ public class BenchmarkDataNucleus extends BenchmarkJPA {
         List<Node> children = leaf.getChildren();
         for (int index = 0; index < nodeGenerator.getNumberOfChildren(); ++index) {
             Node node = new Node();
-            entityManager.persist(node);
+            em.persist(node);
             node.setMyValue(leaf.getMyValue());
             node.setParent(leaf);
             children.add(node);
