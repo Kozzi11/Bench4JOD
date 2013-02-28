@@ -6,9 +6,12 @@ import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
 import com.orientechnologies.orient.core.tx.OTransaction;
 import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
 import eu.kozzi.bp.ArgsParser;
+import eu.kozzi.bp.Bench4JODProperties;
 import eu.kozzi.bp.Tree.Node;
 import eu.kozzi.bp.Tree.NodeGeneratorBuilder;
 import eu.kozzi.bp.Tree.NodeGeneratorOrientDb;
+import eu.kozzi.bp.Tree.Setting.GeneratorSetting;
+
 import java.util.*;
 
 /**
@@ -24,9 +27,9 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
     private ODatabaseObject db;
     private OTransaction tx;
 
-    BenchmarkOrientDb(ArgsParser argsParser) {
+    BenchmarkOrientDb(GeneratorSetting generatorSetting) {
 
-        db = new OObjectDatabaseTx("local:petshop");
+        db = new OObjectDatabaseTx("local:orientdbtest");
         if (db.exists() == false) {
             db.create();
         } else {
@@ -36,18 +39,19 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
         }
         db.getEntityManager().registerEntityClass(Node.class);
 
-        NodeGeneratorBuilder nodeGeneratorBuilder = new NodeGeneratorBuilder(new NodeGeneratorOrientDb(), argsParser.getVariant());
-        nodeGenerator = (NodeGeneratorOrientDb) nodeGeneratorBuilder.setMinChildren(argsParser.getMinChildren())
-                .setMaxChildren(argsParser.getMaxChildren())
-                .setNumberOfChildren(argsParser.getNumberOfChildren())
-                .setNumberOfNodes(argsParser.getNumberOfNodes())
-                .setHeight(argsParser.getHeight())
+        NodeGeneratorBuilder nodeGeneratorBuilder = new NodeGeneratorBuilder(new NodeGeneratorOrientDb(), generatorSetting.getVariant());
+        nodeGenerator = (NodeGeneratorOrientDb) nodeGeneratorBuilder.setMinChildren(generatorSetting.getMinChildren())
+                .setMaxChildren(generatorSetting.getMaxChildren())
+                .setNumberOfChildren(generatorSetting.getNumberOfChildren())
+                .setNumberOfNodes(generatorSetting.getNumberOfNodes())
+                .setHeight(generatorSetting.getHeight())
                 .createNodeGenerator();
         nodeGenerator.setDb(db);
     }
 
     @Override
     public void generateTree() {
+        initialize();
         startTest();
         tx = db.getTransaction();
 
@@ -58,8 +62,10 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
             tx.rollback();
+        } finally {
+            stopTest("Generate tree");
+            clear();
         }
-        stopTest("Generate tree");
     }
 
     @Override
@@ -70,6 +76,7 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
 
     @Override
     public void updateRoot() {
+        initialize();
         root = getRoot();
         startTest();
         tx = db.getTransaction();
@@ -80,22 +87,27 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             tx.commit();
         } catch (Exception exception) {
             tx.rollback();
+        } finally {
+            stopTest("Update root");
+            clear();
         }
-        stopTest("Update root");
     }
 
     @Override
     public void findLeafs() {
+        initialize();
         startTest();
         String query = "SELECT * FROM Node WHERE children.size() = 0 OR children IS NULL";
         List<Node> leafs = db.query(new OSQLSynchQuery<Node>(query));
         System.out.print("Lefs count: ");
         System.out.println(leafs.size());
         stopTest("Find tree lefs");
+        clear();
     }
 
     @Override
     public void addLeafs() {
+        initialize();
         String query = "SELECT * FROM Node WHERE children.size() = 0 OR children IS NULL";
         List<Node> leafs = db.query(new OSQLSynchQuery<Node>(query));
         startTest();
@@ -110,13 +122,15 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
             tx.rollback();
+        } finally {
+            stopTest("Generate leafs");
+            clear();
         }
-
-        stopTest("Generate leafs");
     }
 
     @Override
     public void findNodesWithValueDb(final int value) {
+        initialize();
         String query = "SELECT * FROM Node WHERE myValue = " + Integer.toString(value);
         startTest();
 
@@ -124,10 +138,13 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
         System.out.print("Find nodes db: ");
         System.out.println(nodes.size());
         stopTest("Find nodes by value in db");
+        clear();
     }
 
     @Override
     public void makeBinaryTree() {
+
+        initialize();
         db.getLevel1Cache().invalidate();
         tx = db.getTransaction();
 
@@ -144,14 +161,16 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             System.err.println(exception.getMessage());
             exception.printStackTrace(System.out);
             tx.rollback();
+        } finally {
+            stopTest("Generate binary tree");
+            clear();
         }
-        stopTest("Generate binary tree");
 
     }
 
     @Override
     public void swapRootChildren() {
-
+        initialize();
         root = getRoot();
         tx = db.getTransaction();
         startTest();
@@ -204,13 +223,16 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
         } catch (Exception exception) {
             exception.printStackTrace();
             tx.rollback();
+        } finally {
+            stopTest("Swap root children");
+            clear();
         }
-        stopTest("Swap root children");
 
     }
 
     @Override
     public void deleteTree() {
+        initialize();
         root = getRoot();
         startTest();
         tx = db.getTransaction();
@@ -220,8 +242,25 @@ public class BenchmarkOrientDb extends BenchmarkBase implements Benchmark {
             tx.commit();
         } catch (Exception exception) {
             tx.rollback();
+        } finally {
+            stopTest("Delete tree");
+            clear();
         }
-        stopTest("Delete tree");
+    }
+
+    @Override
+    public void initialize() {
+
+    }
+
+    @Override
+    public void clear() {
+        Bench4JODProperties properties = Bench4JODProperties.getInstance();
+        String cleanCache = properties.getProperty(Bench4JODProperties.Benchmark.CLEAN_CACHE, "false");
+        if (Boolean.valueOf(cleanCache)) {
+            db.getLevel1Cache().invalidate();
+            db.getLevel2Cache().clear();
+        }
     }
 
     private void generateLeafChildren(Node leaf) {

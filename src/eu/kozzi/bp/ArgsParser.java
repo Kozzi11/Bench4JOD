@@ -1,8 +1,10 @@
 package eu.kozzi.bp;
 
 import eu.kozzi.bp.Exception.ArgsParserException;
+import eu.kozzi.bp.Exception.NoArgsException;
 import eu.kozzi.bp.Tree.NodeGenerator;
 import eu.kozzi.bp.Tree.NodeGeneratorJPA;
+import eu.kozzi.bp.Tree.Setting.GeneratorSetting;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +13,7 @@ import eu.kozzi.bp.Tree.NodeGeneratorJPA;
  * Time: 2:54
  * To change this template use File | Settings | File Templates.
  */
-public class ArgsParser {
+public class ArgsParser implements GeneratorSetting {
     private String[] args;
     private String persistenceUnitName;
     private NodeGeneratorJPA.Variant variant;
@@ -21,8 +23,13 @@ public class ArgsParser {
     private int height;
     private int numberOfChildren;
 
-    public ArgsParser(String args[]) throws ArgsParserException {
+    public ArgsParser(String args[]) throws ArgsParserException, NoArgsException {
         this.args = args;
+
+        if (args.length == 0) {
+            throw new NoArgsException();
+        }
+
         if (args.length < 4) {
             throw new ArgsParserException();
         }

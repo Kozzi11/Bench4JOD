@@ -11,7 +11,8 @@ public interface NodeGenerator {
 
     public enum Variant {
         FIX_HEIGHT,
-        FIX_NODE_COUNT
+        FIX_NODE_COUNT,
+        ERROR
     }
 
     static final long SEED = 19580427;

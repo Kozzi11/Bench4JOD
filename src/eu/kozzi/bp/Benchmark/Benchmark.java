@@ -40,6 +40,10 @@ public interface Benchmark {
 
     public void deleteTree();
 
+    public void initialize();
+
+    public void clear();
+
     public void cleanup();
 
 }

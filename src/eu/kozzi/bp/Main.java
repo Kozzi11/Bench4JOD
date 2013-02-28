@@ -4,6 +4,8 @@ import eu.kozzi.bp.Benchmark.Benchmark;
 import eu.kozzi.bp.Benchmark.BenchmarkFactory;
 import eu.kozzi.bp.Benchmark.BenchmarkOrientDb;
 import eu.kozzi.bp.Exception.ArgsParserException;
+import eu.kozzi.bp.Exception.NoArgsException;
+import eu.kozzi.bp.Tree.Setting.GeneratorSetting;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,32 +19,33 @@ import eu.kozzi.bp.Exception.ArgsParserException;
 public class Main {
 
     public static void main(String[] args) {
+
+        GeneratorSetting generatorSetting = null;
+
         try {
             ArgsParser argsParser = new ArgsParser(args);
+            generatorSetting = argsParser;
 
-            /*String persistenceUnitName = argsParser.getPersistenceUnitName();
-            if (persistenceUnitName.contains("dn-")) {
-                ClassPathHacker.addFile("lib/asm-4.0.jar");
-            } else {
-                ClassPathHacker.addFile("lib/asm-3.3.1.jar");
-            } */
-
-            BenchmarkFactory benchmarkFactory = BenchmarkFactory.createInstance(argsParser);
+        } catch (ArgsParserException e) {
+            System.err.println(e.getMessage());
+            printUsage();
+        } catch (NoArgsException e) {
+            generatorSetting = Bench4JODProperties.getInstance().getGeneratorProperties();
+        }
+        try {
+            BenchmarkFactory benchmarkFactory = BenchmarkFactory.createInstance(generatorSetting);
             Benchmark benchmark = benchmarkFactory.getBenchmark();
             benchmark.run();
             System.out.print("\nTotal: ");
             System.out.println(benchmark.getTotalTime());
-
-        } catch (ArgsParserException exception) {
-            System.err.println(exception.getMessage());
-            printUsage();
-        } catch (Exception exception) {
-            System.err.println(exception.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public static void printUsage() {
         System.err.println("\nUsage:");
+        System.err.println("\tprogram");
         System.err.println("\tprogram <persistenceUnitName> NODE_COUNT <minChildren> <maxChildren> <numberOfNodes>");
         System.err.println("\tprogram <persistenceUnitName> TREE_HEIGHT <height> <numberOfChildren>");
     }

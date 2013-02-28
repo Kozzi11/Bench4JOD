@@ -2,6 +2,7 @@ package eu.kozzi.bp.Benchmark;
 
 import eu.kozzi.bp.ArgsParser;
 import eu.kozzi.bp.Tree.Node;
+import eu.kozzi.bp.Tree.Setting.GeneratorSetting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +15,13 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class BenchmarkObjectDb extends BenchmarkJPA {
-    BenchmarkObjectDb(ArgsParser argsParser) {
-        super(argsParser);
+    BenchmarkObjectDb(GeneratorSetting generatorSetting) {
+        super(generatorSetting);
     }
 
     @Override
     public void findLeafs() {
+        initialize();
         startTest();
         List<Node> list1 = entityManager.createQuery(
                 "SELECT DISTINCT n.parent FROM Node n", Node.class).getResultList();
@@ -29,10 +31,13 @@ public class BenchmarkObjectDb extends BenchmarkJPA {
         System.out.print("Lefs count: ");
         System.out.println(leafs.size());
         stopTest("Find tree lefs");
+        clear();
     }
 
     @Override
     public void addLeafs() {
+
+       initialize();
         List<Node> list1 = entityManager.createQuery(
                 "SELECT DISTINCT n.parent FROM Node n", Node.class).getResultList();
 
@@ -52,35 +57,10 @@ public class BenchmarkObjectDb extends BenchmarkJPA {
             if (tx.isActive()) {
                 tx.rollback();
             }
+        } finally {
+            stopTest("Generate leafs");
+            clear();
         }
-        stopTest("Generate leafs");
     }
 
-    /*@Override
-    public void swapRootChildren() {
-        tx = entityManager.getTransaction();
-        root = getRoot();
-        startTest();
-
-        try {
-            tx.begin();
-            Node rootLeftChild = root.getChildren().get(0);
-            Node rootRightChild = root.getChildren().get(1);
-            List<Node> leftChildChildren = new ArrayList<Node>(rootLeftChild.getChildren());
-            List<Node> rightChildChildren = new ArrayList<Node>(rootRightChild.getChildren());
-            rootLeftChild.setChildren(rightChildChildren);
-            rootRightChild.setChildren(leftChildChildren);
-            entityManager.persist(rootLeftChild);
-            entityManager.persist(rootRightChild);
-            root.getChildren().add(rootRightChild);
-            root.getChildren().add(rootLeftChild);
-            entityManager.persist(root);
-            tx.commit();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            tx.rollback();
-        }
-        stopTest("Swap root children");
-
-    }  */
 }

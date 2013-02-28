@@ -1,9 +1,11 @@
 package eu.kozzi.bp.Benchmark;
 
 import eu.kozzi.bp.ArgsParser;
+import eu.kozzi.bp.Bench4JODProperties;
 import eu.kozzi.bp.Tree.Node;
 import eu.kozzi.bp.Tree.NodeGeneratorBuilder;
 import eu.kozzi.bp.Tree.NodeGeneratorJPA;
+import eu.kozzi.bp.Tree.Setting.GeneratorSetting;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,17 +29,17 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
 
     BenchmarkJPA() {}
 
-    BenchmarkJPA(ArgsParser argsParser) {
-        String persistenceUnitName = argsParser.getPersistenceUnitName();
+    BenchmarkJPA(GeneratorSetting generatorSetting) {
+        String persistenceUnitName = generatorSetting.getPersistenceUnitName();
 
         entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
         entityManager = entityManagerFactory.createEntityManager();
-        NodeGeneratorBuilder nodeGeneratorBuilder = new NodeGeneratorBuilder(new NodeGeneratorJPA(), argsParser.getVariant());
-        nodeGenerator = (NodeGeneratorJPA) nodeGeneratorBuilder.setMinChildren(argsParser.getMinChildren())
-                .setMaxChildren(argsParser.getMaxChildren())
-                .setNumberOfChildren(argsParser.getNumberOfChildren())
-                .setNumberOfNodes(argsParser.getNumberOfNodes())
-                .setHeight(argsParser.getHeight())
+        NodeGeneratorBuilder nodeGeneratorBuilder = new NodeGeneratorBuilder(new NodeGeneratorJPA(), generatorSetting.getVariant());
+        nodeGenerator = (NodeGeneratorJPA) nodeGeneratorBuilder.setMinChildren(generatorSetting.getMinChildren())
+                .setMaxChildren(generatorSetting.getMaxChildren())
+                .setNumberOfChildren(generatorSetting.getNumberOfChildren())
+                .setNumberOfNodes(generatorSetting.getNumberOfNodes())
+                .setHeight(generatorSetting.getHeight())
                 .createNodeGenerator();
         nodeGenerator.setEntityManager(entityManager);
     }
@@ -49,6 +51,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
     }
 
     public void generateTree() {
+        initialize();
         startTest();
         tx = entityManager.getTransaction();
 
@@ -61,8 +64,10 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             if (tx.isActive()) {
                 tx.rollback();
             }
+        } finally {
+            stopTest("Generate tree");
+            clear();
         }
-        stopTest("Generate tree");
     }
 
     public Node getRoot() {
@@ -70,6 +75,7 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
     }
 
     public void updateRoot() {
+        initialize();
         root = getRoot();
         startTest();
         tx = entityManager.getTransaction();
@@ -81,11 +87,14 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             if (tx.isActive()) {
                 tx.rollback();
             }
+        } finally {
+            stopTest("Update root");
+            clear();
         }
-        stopTest("Update root");
     }
 
     public void findLeafs() {
+        initialize();
         startTest();
         String query = "SELECT n FROM Node n WHERE n.children IS EMPTY";
 
@@ -93,9 +102,11 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
         System.out.print("Lefs count: ");
         System.out.println(leafs.size());
         stopTest("Find tree lefs");
+        clear();
     }
 
     public void addLeafs() {
+        initialize();
         String query = "SELECT n FROM Node n WHERE n.children IS EMPTY";
         List<Node> leafs = entityManager.createQuery(query, Node.class).getResultList();
         startTest();
@@ -111,12 +122,15 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             if (tx.isActive()) {
                 tx.rollback();
             }
+        } finally {
+            stopTest("Generate leafs");
+            clear();
         }
-        stopTest("Generate leafs");
     }
 
     @Override
     public void findNodesWithValueDb(final int value) {
+        initialize();
         String query = "SELECT n FROM Node n WHERE n.myValue = :searchValue";
         startTest();
 
@@ -124,10 +138,12 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
         System.out.print("Find nodes db: ");
         System.out.println(nodes.size());
         stopTest("Find nodes by value in db");
+        clear();
     }
 
     @Override
     public void makeBinaryTree() {
+        initialize();
         tx = entityManager.getTransaction();
         String query = "SELECT n FROM Node n ORDER BY n.myValue DESC";
         List<Node> nodes = entityManager.createQuery(query, Node.class).getResultList();
@@ -143,13 +159,16 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             if (tx.isActive()) {
                 tx.rollback();
             }
+        } finally {
+            stopTest("Generate binary tree");
+            clear();
         }
-        stopTest("Generate binary tree");
 
     }
 
     @Override
     public void swapRootChildren() {
+        initialize();
         tx = entityManager.getTransaction();
 
 
@@ -206,12 +225,15 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             if (tx.isActive()) {
                 tx.rollback();
             }
+        } finally {
+            stopTest("Swap root children");
+            clear();
         }
-        stopTest("Swap root children");
 
     }
 
     public void deleteTree() {
+        initialize();
         root = getRoot();
         tx = entityManager.getTransaction();
         startTest();
@@ -222,8 +244,25 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
         } catch (Exception exception) {
             exception.printStackTrace();
             tx.rollback();
+        } finally {
+            stopTest("Delete tree");
+            clear();
         }
-        stopTest("Delete tree");
+    }
+
+
+    @Override
+    public void initialize() {
+
+    }
+
+    @Override
+    public void clear() {
+        Bench4JODProperties properties = Bench4JODProperties.getInstance();
+        String cleanCache = properties.getProperty(Bench4JODProperties.Benchmark.CLEAN_CACHE, "false");
+        if (Boolean.valueOf(cleanCache)) {
+            entityManager.clear();
+        }
     }
 
     protected void generateLeafChildren(Node leaf) {

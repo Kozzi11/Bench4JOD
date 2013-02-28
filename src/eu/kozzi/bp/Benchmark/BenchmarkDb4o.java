@@ -6,9 +6,11 @@ import com.db4o.config.EmbeddedConfiguration;
 
 import com.db4o.query.Predicate;
 import eu.kozzi.bp.ArgsParser;
+import eu.kozzi.bp.Bench4JODProperties;
 import eu.kozzi.bp.Tree.Node;
 import eu.kozzi.bp.Tree.NodeGeneratorBuilder;
 import eu.kozzi.bp.Tree.NodeGeneratorDb4o;
+import eu.kozzi.bp.Tree.Setting.GeneratorSetting;
 
 
 import java.sql.Timestamp;
@@ -24,40 +26,45 @@ import java.util.*;
 public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
 
     private ObjectContainer db;
+    private ObjectContainer objectContainer;
     private NodeGeneratorDb4o nodeGenerator;
 
-    BenchmarkDb4o(ArgsParser argsParser) {
+    BenchmarkDb4o(GeneratorSetting generatorSetting) {
 
         EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
         config.common().objectClass(Node.class).cascadeOnDelete(true);
 
-        db = Db4oEmbedded.openFile(config, "db4odb");
+        objectContainer = Db4oEmbedded.openFile(config, "db4odb");
 
-        NodeGeneratorBuilder nodeGeneratorBuilder = new NodeGeneratorBuilder(new NodeGeneratorDb4o(), argsParser.getVariant());
-        nodeGenerator = (NodeGeneratorDb4o) nodeGeneratorBuilder.setMinChildren(argsParser.getMinChildren())
-                .setMaxChildren(argsParser.getMaxChildren())
-                .setNumberOfChildren(argsParser.getNumberOfChildren())
-                .setNumberOfNodes(argsParser.getNumberOfNodes())
-                .setHeight(argsParser.getHeight())
+        NodeGeneratorBuilder nodeGeneratorBuilder = new NodeGeneratorBuilder(new NodeGeneratorDb4o(), generatorSetting.getVariant());
+        nodeGenerator = (NodeGeneratorDb4o) nodeGeneratorBuilder.setMinChildren(generatorSetting.getMinChildren())
+                .setMaxChildren(generatorSetting.getMaxChildren())
+                .setNumberOfChildren(generatorSetting.getNumberOfChildren())
+                .setNumberOfNodes(generatorSetting.getNumberOfNodes())
+                .setHeight(generatorSetting.getHeight())
                 .createNodeGenerator();
-        nodeGenerator.setDb(db);
+        nodeGenerator.setDb(objectContainer);
     }
 
     @Override
     public void cleanup() {
-        db.close();
+        objectContainer.close();
     }
 
     @Override
     public void generateTree() {
+        initialize();
         startTest();
         try {
             Node root = nodeGenerator.makeTree();
             db.commit();
         } catch (Exception exception) {
             db.rollback();
+        } finally {
+            stopTest("Generate tree");
+            clear();
         }
-        stopTest("Generate tree");
+
     }
 
     @Override
@@ -72,6 +79,7 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
 
     @Override
     public void updateRoot() {
+        initialize();
         root = getRoot();
         startTest();
         try {
@@ -80,12 +88,15 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
             db.commit();
         } catch (Exception exception) {
             db.rollback();
+        } finally {
+            stopTest("Update root");
+            clear();
         }
-        stopTest("Update root");
     }
 
     @Override
     public void findLeafs() {
+        initialize();
         startTest();
         List<Node> leafs = db.query(new Predicate<Node>() {
             public boolean match(Node node) {
@@ -95,10 +106,12 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
         System.out.print("Lefs count: ");
         System.out.println(leafs.size());
         stopTest("Find tree lefs");
+        clear();
     }
 
     @Override
     public void addLeafs() {
+        initialize();
         List<Node> leafs = db.query(new Predicate<Node>() {
             public boolean match(Node node) {
                 return node.getChildren().isEmpty();
@@ -114,12 +127,15 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
             db.rollback();
+        } finally {
+            stopTest("Generate leafs");
+            clear();
         }
-        stopTest("Generate leafs");
     }
 
     @Override
     public void findNodesWithValueDb(final int value) {
+        initialize();
         startTest();
         List<Node> nodes = db.query(new Predicate<Node>() {
             public boolean match(Node node) {
@@ -129,10 +145,13 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
         System.out.print("Find nodes db: ");
         System.out.println(nodes.size());
         stopTest("Find nodes by value in db");
+        clear();
     }
 
     @Override
     public void makeBinaryTree() {
+
+        initialize();
 
         Comparator<Node> comparator = new Comparator<Node>() {
             @Override
@@ -156,12 +175,16 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
         } catch (Exception exception) {
             System.err.println(exception.getMessage());
             db.rollback();
+        } finally {
+            stopTest("Generate binary tree");
+            clear();
         }
-        stopTest("Generate binary tree");
     }
 
     @Override
     public void swapRootChildren() {
+
+        initialize();
 
         root = getRoot();
         startTest();
@@ -215,13 +238,18 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
         } catch (Exception exception) {
             exception.printStackTrace();
             db.rollback();
+        } finally {
+            stopTest("Swap root children");
+            clear();
         }
-        stopTest("Swap root children");
 
     }
 
     @Override
     public void deleteTree() {
+
+        initialize();
+
         root = getRoot();
         startTest();
         try {
@@ -229,8 +257,30 @@ public class BenchmarkDb4o extends BenchmarkBase implements Benchmark {
             db.commit();
         } catch (Exception exception) {
             db.rollback();
+        } finally {
+            stopTest("Delete tree");
+            clear();
         }
-        stopTest("Delete tree");
+    }
+
+    @Override
+    public void initialize() {
+        Bench4JODProperties properties = Bench4JODProperties.getInstance();
+        String cleanCache = properties.getProperty(Bench4JODProperties.Benchmark.CLEAN_CACHE, "false");
+        if (Boolean.valueOf(cleanCache)) {
+            db = objectContainer.ext().openSession();
+        } else {
+            db = objectContainer;
+        }
+    }
+
+    @Override
+    public void clear() {
+        Bench4JODProperties properties = Bench4JODProperties.getInstance();
+        String cleanCache = properties.getProperty(Bench4JODProperties.Benchmark.CLEAN_CACHE, "false");
+        if (Boolean.valueOf(cleanCache)) {
+            db.close();
+        }
     }
 
     private void generateLeafChildren(Node leaf) {

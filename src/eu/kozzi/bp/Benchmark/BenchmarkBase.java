@@ -43,29 +43,35 @@ public abstract class BenchmarkBase implements Benchmark {
 
     @Override
     public void findRoot() {
+        initialize();
         startTest();
         root = getRoot();
         stopTest("Find tree root");
+        clear();
     }
 
     @Override
     public void computeTreeHeight() {
+        initialize();
         root = getRoot();
         startTest();
         int height = root.getHeight();
         System.out.print("Tree height is: ");
         System.out.println(height);
         stopTest("Compute tree height");
+        clear();
     }
 
     @Override
     public void findNodesWithValue(final int value) {
+        initialize();
         root = getRoot();
         startTest();
         List<Node> nodes = root.findByValue(value);
         System.out.print("Find nodes: ");
         System.out.println(nodes.size());
         stopTest("Find nodes by value");
+        clear();
     }
 
     @Override

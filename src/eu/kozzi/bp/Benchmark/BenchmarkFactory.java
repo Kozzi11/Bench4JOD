@@ -1,6 +1,7 @@
 package eu.kozzi.bp.Benchmark;
 
 import eu.kozzi.bp.ArgsParser;
+import eu.kozzi.bp.Tree.Setting.GeneratorSetting;
 
 
 /**
@@ -17,8 +18,8 @@ public class BenchmarkFactory {
     private Benchmark benchmark;
 
 
-    public static BenchmarkFactory createInstance(ArgsParser argsParser) {
-        instance = new BenchmarkFactory(argsParser);
+    public static BenchmarkFactory createInstance(GeneratorSetting generatorSetting) {
+        instance = new BenchmarkFactory(generatorSetting);
         return instance;
     }
 
@@ -34,20 +35,18 @@ public class BenchmarkFactory {
     }
 
 
-    private BenchmarkFactory(ArgsParser argsParser) {
-        String persistenceUnitName = argsParser.getPersistenceUnitName();
+    private BenchmarkFactory(GeneratorSetting generatorSetting) {
+        String persistenceUnitName = generatorSetting.getPersistenceUnitName();
         if (persistenceUnitName.equals("orientdb")) {
-            this.benchmark = new BenchmarkOrientDb(argsParser);
+            this.benchmark = new BenchmarkOrientDb(generatorSetting);
         } else if (persistenceUnitName.equals("db4o")) {
-            this.benchmark = new BenchmarkDb4o(argsParser);
+            this.benchmark = new BenchmarkDb4o(generatorSetting);
         } else if (persistenceUnitName.equals("objectdb")) {
-            this.benchmark = new BenchmarkObjectDb(argsParser);
+            this.benchmark = new BenchmarkObjectDb(generatorSetting);
         } else if (persistenceUnitName.contains("dn-")) {
-            this.benchmark = new BenchmarkDataNucleus(argsParser);
-        } else if (persistenceUnitName.equals("batoo-mysql") || persistenceUnitName.equals("batoo-pgsql")) {
-            this.benchmark = new BenchmarkBatoo(argsParser);
+            this.benchmark = new BenchmarkDataNucleus(generatorSetting);
         } else {
-            this.benchmark = new BenchmarkJPA(argsParser);
+            this.benchmark = new BenchmarkJPA(generatorSetting);
         }
     }
 
