@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="org.neo4j:neo4j-com:1.7.2" type="repository">
+    <properties maven-id="org.neo4j:neo4j-com:1.7.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/neo4j-com-1.7.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/neo4j-kernel-1.7.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/geronimo-jta_1.1_spec-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.apache.servicemix.bundles.netty-3.2.5.Final_1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

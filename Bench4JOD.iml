@@ -8,26 +8,26 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql:mysql-connector-java:5.1.22" level="project" />
-    <orderEntry type="library" name="org.slf4j:slf4j-log4j12:1.6.6" level="project" />
     <orderEntry type="library" name="objectdb" level="project" />
     <orderEntry type="library" name="org.apache.openjpa:openjpa:2.2.1" level="project" />
     <orderEntry type="library" name="org.hibernate:hibernate-entitymanager:4.1.9.Final" level="project" />
     <orderEntry type="library" name="eclipselink" level="project" />
-    <orderEntry type="library" name="batoo-jpa-2.0.1.0-RTM" level="project" />
     <orderEntry type="library" name="org.hibernate:hibernate-validator:4.3.1.Final" level="project" />
-    <orderEntry type="library" name="asm-4.0" level="project" />
-    <orderEntry type="library" name="datanucleus-rdbms-3.1.4" level="project" />
     <orderEntry type="library" name="com.orientechnologies:orientdb-client:1.3.0" level="project" />
     <orderEntry type="library" name="com.orientechnologies:orientdb-object:1.3.0" level="project" />
     <orderEntry type="library" name="db4o-8.0.249.16098-bench" level="project" />
-    <orderEntry type="library" name="persistence-api-2.0" level="project" />
     <orderEntry type="library" name="org.antlr:antlr-runtime:3.4" level="project" />
     <orderEntry type="library" name="postgresql:postgresql:9.2-1002.jdbc4" level="project" />
-    <orderEntry type="library" name="asm-3.3.1" level="project" />
     <orderEntry type="library" name="org.hsqldb:hsqldb:2.2.9" level="project" />
     <orderEntry type="library" name="com.h2database:h2:1.3.170" level="project" />
-    <orderEntry type="library" name="org.apache.derby:derby:10.9.1.0" level="project" />
-    <orderEntry type="library" name="asm-4.0 (2)" level="project" />
+    <orderEntry type="library" name="org.apache.lucene:lucene-core:4.1.0" level="project" />
+    <orderEntry type="library" name="org.datanucleus:datanucleus-rdbms:3.2.0-m2" level="project" />
+    <orderEntry type="library" name="org.neo4j:neo4j-com:1.7.2" level="project" />
+    <orderEntry type="library" name="org.slf4j:slf4j-log4j12:1.6.61" level="project" />
+    <orderEntry type="library" name="commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="apache-collections:commons-collections:3.1" level="project" />
+    <orderEntry type="library" name="datanucleus-dep" level="project" />
+    <orderEntry type="library" name="asm-4.0" level="project" />
   </component>
 </module>
 

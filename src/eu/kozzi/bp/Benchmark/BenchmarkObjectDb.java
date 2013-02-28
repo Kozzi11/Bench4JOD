@@ -48,8 +48,10 @@ public class BenchmarkObjectDb extends BenchmarkJPA {
             }
             tx.commit();
         } catch (Exception exception) {
-            System.err.println(exception.getMessage());
-            tx.rollback();
+            exception.printStackTrace();
+            if (tx.isActive()) {
+                tx.rollback();
+            }
         }
         stopTest("Generate leafs");
     }

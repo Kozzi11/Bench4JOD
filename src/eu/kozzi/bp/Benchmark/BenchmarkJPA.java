@@ -57,7 +57,10 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             Node root = nodeGenerator.makeTree();
             tx.commit();
         } catch (Exception exception) {
-            tx.rollback();
+            exception.printStackTrace();
+            if (tx.isActive()) {
+                tx.rollback();
+            }
         }
         stopTest("Generate tree");
     }
@@ -75,7 +78,9 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             root.setMyValue(root.getMyValue() + 10);
             tx.commit();
         } catch (Exception exception) {
-            tx.rollback();
+            if (tx.isActive()) {
+                tx.rollback();
+            }
         }
         stopTest("Update root");
     }
@@ -103,7 +108,9 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             tx.commit();
         } catch (Exception exception) {
             exception.printStackTrace();
-            tx.rollback();
+            if (tx.isActive()) {
+                tx.rollback();
+            }
         }
         stopTest("Generate leafs");
     }
@@ -132,8 +139,10 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             generateBinaryTree(nodes);
             tx.commit();
         } catch (Exception exception) {
-            System.err.println(exception.getMessage());
-            tx.rollback();
+            exception.printStackTrace();
+            if (tx.isActive()) {
+                tx.rollback();
+            }
         }
         stopTest("Generate binary tree");
 
@@ -194,14 +203,15 @@ public class BenchmarkJPA extends BenchmarkBase implements Benchmark {
             tx.commit();
         } catch (Exception exception) {
             exception.printStackTrace();
-            tx.rollback();
+            if (tx.isActive()) {
+                tx.rollback();
+            }
         }
         stopTest("Swap root children");
 
     }
 
     public void deleteTree() {
-        //entityManager.clear();
         root = getRoot();
         tx = entityManager.getTransaction();
         startTest();
