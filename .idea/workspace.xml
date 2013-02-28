@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_hibernate_hibernate_ehcache_4_1_9_Final.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/datanucleus-rdbms-3.2.0-m2.jar" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_batoo_jpa_batoo_jpa_2_0_1_0_SNAPSHOT.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/asm_4_0.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bench4JOD.iml" afterPath="$PROJECT_DIR$/Bench4JOD.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDb4o.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDb4o.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkObjectDb.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkObjectDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkOrientDb.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkOrientDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Node.java" afterPath="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Node.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/benchmark.properties" afterPath="$PROJECT_DIR$/src/META-INF/benchmark.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datanucleus.log" afterPath="$PROJECT_DIR$/datanucleus.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/log4j.properties" afterPath="$PROJECT_DIR$/src/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/datanucleus_dep.xml" afterPath="$PROJECT_DIR$/.idea/libraries/datanucleus_dep.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Bench4JOD.iws" />
@@ -24,7 +14,7 @@
     <file path="/User.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1358024349228" ignored="false" />
     <file path="/persistence.xml" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361991718248" ignored="false" />
     <file path="/Main.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362055245113" ignored="false" />
-    <file path="/fragment.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362074636174" ignored="false" />
+    <file path="/fragment.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362094006902" ignored="false" />
     <file path="/Node.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362068312732" ignored="false" />
     <file path="/Generator.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1358332490907" ignored="false" />
     <file path="/NodeGenerator.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362054225395" ignored="false" />
@@ -49,12 +39,12 @@
     <file path="/BenchmarkBase.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362050325224" ignored="false" />
     <file path="/BenchmarkDataNucleus.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362075531245" ignored="false" />
     <file path="/BenchmarkBatoo.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361872361844" ignored="false" />
-    <file path="/Dummy.txt" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362044815189" ignored="false" />
+    <file path="/Dummy.txt" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362093557313" ignored="false" />
     <file path="/ClassPathHacker.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361176090325" ignored="false" />
     <file path="/batoo_jpa_2_0_1_0_RTM.xml" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361180671351" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/libraries/org_datanucleus_datanucleus_rdbms_3_2_0_m2.xml" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1361979192048" ignored="false" />
     <file path="/BenchmarkProperties.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362050651759" ignored="false" />
-    <file path="/benchmark.properties" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362069063251" ignored="false" />
+    <file path="/benchmark.properties" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362093771729" ignored="false" />
     <file path="/Bench4JODProperties.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362056406690" ignored="false" />
     <file path="/NoArgsException.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362052996404" ignored="false" />
     <file path="/GeneratorSetting.java" changelist="43a05e59-62f2-4c28-9a1b-e68f126a9ae5" time="1362053343987" ignored="false" />
@@ -72,6 +62,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -106,7 +97,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -119,25 +109,61 @@
       <file leaf-file-name="benchmark.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/META-INF/benchmark.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="1" selection-start="882" selection-end="903" vertical-scroll-proportion="0.0">
+            <state line="21" column="1" selection-start="937" selection-end="958" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BenchmarkJPA.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Benchmark.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="37" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BenchmarkBase.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="8" selection-start="521" selection-end="521" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Platform.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/google-collections-1.0.jar!/com/google/common/base/Platform.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="22" selection-start="388" selection-end="388" vertical-scroll-proportion="-6.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BenchmarkJPA.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="77" selection-start="4685" selection-end="4685" vertical-scroll-proportion="0.0">
+            <state line="220" column="0" selection-start="6657" selection-end="6657" vertical-scroll-proportion="1.3963636">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BenchmarkDataNucleus.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BenchmarkDataNucleus.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="14" selection-start="3266" selection-end="3266" vertical-scroll-proportion="0.5034843">
+            <state line="94" column="14" selection-start="3266" selection-end="3266" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Node.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="10" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -146,7 +172,7 @@
       <file leaf-file-name="JPAEntityManager.class" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/lib/datanucleus-api-jpa-3.2.0-m4.jar!/org/datanucleus/api/jpa/JPAEntityManager.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="0" selection-start="8170" selection-end="8170" vertical-scroll-proportion="-18.84">
+            <state line="156" column="0" selection-start="8170" selection-end="8170" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -156,9 +182,7 @@
         <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="182" column="133" selection-start="10678" selection-end="10678" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1362068867464" expanded="true" signature="98:18091" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -194,9 +218,9 @@
         <option value="$PROJECT_DIR$/src/log4j.properties" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Tree/Node.java" />
         <option value="$PROJECT_DIR$/src/META-INF/persistence.xml" />
-        <option value="$PROJECT_DIR$/src/META-INF/benchmark.properties" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java" />
         <option value="$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java" />
+        <option value="$PROJECT_DIR$/src/META-INF/benchmark.properties" />
       </list>
     </option>
   </component>
@@ -208,9 +232,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="27" />
-    <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="y" value="26" />
+    <option name="width" value="1910" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -238,6 +262,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -285,7 +310,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bench4JOD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bench4JOD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="bp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bench4JOD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bench4JOD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tree" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -325,23 +390,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bench4JOD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bench4JOD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guava-11.0.2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="OverrideImplement.combined" value="false" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
-    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/datanucleus-rdbms-3.2.0-m4.jar!/" />
+    <property name="recentsLimit" value="5" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/datanucleus-rdbms-3.2.0-m4.jar!/" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="Bench4JOD" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -357,8 +439,8 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -378,19 +460,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -418,6 +487,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -506,13 +588,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="0" y="26" width="1910" height="1048" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32527474" sideWeight="0.49786553" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.50053364" order="10" side_tool="true" content_ui="tabs" />
@@ -523,10 +604,11 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2529349" sideWeight="0.6593407" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34065935" sideWeight="0.49573106" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25268242" sideWeight="0.6596685" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3403315" sideWeight="0.49573106" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32527474" sideWeight="0.49786553" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -591,53 +673,29 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib/datanucleus-core-3.2.0-m4.jar!/org/datanucleus/asm/Opcodes.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="166" selection-end="166" vertical-scroll-proportion="47.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/asm-4.0.jar!/org/objectweb/asm/ByteVector.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="-3.0">
-          <folding />
-        </state>
+        <state line="6" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="-3.0" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/asm-4.0.jar!/org/objectweb/asm/signature/SignatureReader.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="170" selection-end="170" vertical-scroll-proportion="-3.0">
-          <folding />
-        </state>
+        <state line="6" column="13" selection-start="170" selection-end="170" vertical-scroll-proportion="-3.0" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/asm-4.0.jar!/org/objectweb/asm/signature/SignatureVisitor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="22" selection-start="179" selection-end="179" vertical-scroll-proportion="-3.0">
-          <folding />
-        </state>
+        <state line="6" column="22" selection-start="179" selection-end="179" vertical-scroll-proportion="-3.0" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/asm-4.0.jar!/org/objectweb/asm/signature/SignatureWriter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="170" selection-end="170" vertical-scroll-proportion="-3.0">
-          <folding />
-        </state>
+        <state line="6" column="13" selection-start="170" selection-end="170" vertical-scroll-proportion="-3.0" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/datanucleus-core-3.2.0-m4.jar!/org/datanucleus/asm/AnnotationWriter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="20" selection-start="139" selection-end="139" vertical-scroll-proportion="0.08196721">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="37" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="4" column="20" selection-start="139" selection-end="139" vertical-scroll-proportion="0.08196721" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Tree/NodeGeneratorJPA.java">
@@ -647,16 +705,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java">
+    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="8" selection-start="521" selection-end="521" vertical-scroll-proportion="0.0">
+        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/datanucleus-api-jpa-3.2.0-m4.jar!/org/datanucleus/api/jpa/JPAEntityManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="0" selection-start="8170" selection-end="8170" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0">
+        <state line="94" column="14" selection-start="3266" selection-end="3266" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -671,36 +734,41 @@
     <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="182" column="133" selection-start="10678" selection-end="10678" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1362068867464" expanded="true" signature="98:18091" placeholder="..." />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/Benchmark.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="37" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="8" selection-start="521" selection-end="521" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/google-collections-1.0.jar!/com/google/common/base/Platform.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="22" selection-start="388" selection-end="388" vertical-scroll-proportion="-6.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/META-INF/benchmark.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="1" selection-start="882" selection-end="903" vertical-scroll-proportion="0.0">
+        <state line="21" column="1" selection-start="937" selection-end="958" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkJPA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="77" selection-start="4685" selection-end="4685" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/datanucleus-api-jpa-3.2.0-m4.jar!/org/datanucleus/api/jpa/JPAEntityManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="0" selection-start="8170" selection-end="8170" vertical-scroll-proportion="-18.84">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/kozzi/bp/Benchmark/BenchmarkDataNucleus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="14" selection-start="3266" selection-end="3266" vertical-scroll-proportion="0.5034843">
+        <state line="220" column="0" selection-start="6657" selection-end="6657" vertical-scroll-proportion="1.3963636">
           <folding />
         </state>
       </provider>
@@ -782,7 +850,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.hibernate:hibernate-ehcache:4.1.9.Final</last-edited>
+          <last-edited>datanucleus-dep</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
