@@ -1,5 +1,6 @@
 package eu.kozzi.bp.Benchmark;
 
+import eu.kozzi.bp.Bench4JODProperties;
 import eu.kozzi.bp.Tree.Node;
 
 import java.sql.Timestamp;
@@ -22,15 +23,20 @@ public abstract class BenchmarkBase implements Benchmark {
 
     @Override
     public void run() {
+
+        Bench4JODProperties properties = Bench4JODProperties.getInstance();
+
         generateTree();
         findRoot();
         updateRoot();
         findLeafs();
         addLeafs();
-        findNodesWithValue(17);
-        findNodesWithValueDb(17);
+        findNodesWithValue(Integer.valueOf(properties.getProperty(Bench4JODProperties.Benchmark.FIND_NODE_VALUE)));
+        findNodesWithValueDb(Integer.valueOf(properties.getProperty(Bench4JODProperties.Benchmark.FIND_NODE_DB_VALUE)));
+        exploreTree(properties.getProperty(Bench4JODProperties.Benchmark.EXPLORE_PATH));
         makeBinaryTree();
         swapRootChildren();
+        exploreBinaryTree(properties.getProperty(Bench4JODProperties.Benchmark.EXPLORE_BINARY_PATH));
         computeTreeHeight();
         deleteTree();
         cleanup();
@@ -75,6 +81,46 @@ public abstract class BenchmarkBase implements Benchmark {
     }
 
     @Override
+    public void exploreTree(String pathString) {
+
+        String[] path = pathString.split(",");
+        initialize();
+        root = getRoot();
+        startTest();
+        try {
+            Node node = root.findByPath(path);
+            System.out.print("Find node explore tree: ");
+            System.out.println(node.getMyValue());
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        stopTest("Find node explore tree duration");
+        finish();
+    }
+
+    @Override
+    public void exploreBinaryTree(String pathString) {
+
+        String[] path = pathString.split(",");
+        initialize();
+        root = getRoot();
+        startTest();
+        try {
+            Node node = root.findByPath(path);
+            System.out.print("Find node explore binary tree: ");
+            System.out.println(node.getMyValue());
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        stopTest("Find node explore binary tree duration");
+        finish();
+    }
+
+    @Override
     public int getTotalTime() {
         return totalTime;
     }
@@ -89,7 +135,7 @@ public abstract class BenchmarkBase implements Benchmark {
         Date date = new java.util.Date();
         B = new Timestamp(date.getTime());
         totalTime += B.getTime() - A.getTime();
-        System.out.print(msg + ": ");
-        System.out.println(B.getTime() - A.getTime());
+        System.err.print(msg + ": ");
+        System.err.println(B.getTime() - A.getTime());
     }
 }

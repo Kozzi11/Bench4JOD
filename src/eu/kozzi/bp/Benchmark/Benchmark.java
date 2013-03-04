@@ -38,6 +38,10 @@ public interface Benchmark {
 
     public void swapRootChildren();
 
+    public void exploreTree(String path);
+
+    public void exploreBinaryTree(String path);
+
     public void deleteTree();
 
     public void initialize();

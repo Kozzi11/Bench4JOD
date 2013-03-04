@@ -22,6 +22,10 @@ public class Bench4JODProperties extends Properties {
 
     abstract public class Benchmark {
         public static final String CLEAN_CACHE = "bench4jod.benchmark.cleanCache";
+        public static final String FIND_NODE_VALUE ="bench4jod.benchmark.findNodeValue";
+        public static final String FIND_NODE_DB_VALUE ="bench4jod.benchmark.findNodeDbValue";
+        public static final String EXPLORE_PATH ="bench4jod.benchmark.explorePath";
+        public static final String EXPLORE_BINARY_PATH ="bench4jod.benchmark.exploreBinaryPath";
     }
 
     abstract public class Generator {

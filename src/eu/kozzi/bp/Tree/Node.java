@@ -77,6 +77,14 @@ public class Node {
         return maxHeight + 1;
     }
 
+    public Node findByPath(String[] path) throws IndexOutOfBoundsException {
+        Node findNode = null;
+        for(String childIndex: path) {
+            findNode = getChildren().get(Integer.valueOf(childIndex));
+        }
+        return findNode;
+    }
+
     public List<Node> findByValue(int value) {
         List<Node> nodes = new ArrayList<Node>();
         return this.findByValue(value, nodes);
